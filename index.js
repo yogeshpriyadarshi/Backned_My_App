@@ -120,6 +120,18 @@ app.get("/viewtasks", async (req, res) => {
   }
 });
 
+app.post("/daythought", async (req, res) => {
+  const data = req.body;
+  console.log("Received for daythought", data);
 
+  let { email, date, daythought } = req.body;
+  const [rows] = await pool.query(
+    `INSERT INTO journal ( email, date, daythought) VALUES ( '${email}', '${date}','${daythought}')`
+  );
+  res.json({
+    message: "update profile successfully!",
+    success: true,
+  });
+})
 
 app.listen(PORT, () => console.log("server started at 5000"));
