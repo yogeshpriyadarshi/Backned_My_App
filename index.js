@@ -1,9 +1,8 @@
 const express = require("express");
-// const users = require ("./MOCK_DATA.json");
 const cors = require("cors");
 const pool = require("./Database");
 
-let app = express();
+const app = express();
 const PORT = 5000;
 // console.log(users);
 app.use(cors());
